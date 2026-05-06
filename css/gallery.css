@@ -1,0 +1,136 @@
+/* =============================================
+   GALLERY — masonry, photo items, loading
+   ============================================= */
+
+.gallery-page {
+  padding: 3rem var(--page-padding) 0;
+}
+
+.gallery-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-midgrey);
+  margin-bottom: 2.5rem;
+}
+
+/* =============================================
+   MASONRY CONTAINER
+   JS sets position: relative and height
+   ============================================= */
+
+.masonry-container {
+  position: relative;
+  width: 100%;
+}
+
+/* =============================================
+   PHOTO ITEMS
+   JS sets position: absolute, top, left, width
+   ============================================= */
+
+.photo-item {
+  position: absolute;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.photo-item.laid-out {
+  visibility: visible;
+  opacity: 1;
+}
+
+.photo-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.photo-item figcaption {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-lightgrey);
+  padding: 6px 0 0 0;
+  font-style: italic;
+}
+
+/* =============================================
+   LOADING & SENTINEL
+   ============================================= */
+
+#loading-indicator {
+  text-align: center;
+  padding: 2rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--color-lightgrey);
+  text-transform: uppercase;
+  display: none;
+}
+
+#loading-indicator.visible {
+  display: block;
+}
+
+#scroll-sentinel {
+  height: 1px;
+  margin-top: 3rem;
+}
+
+#all-loaded-msg {
+  text-align: center;
+  padding: 2rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: #ccc;
+  text-transform: uppercase;
+  display: none;
+}
+
+#all-loaded-msg.visible {
+  display: block;
+}
+
+/* =============================================
+   EMPTY STATE
+   ============================================= */
+
+.gallery-empty {
+  text-align: center;
+  padding: 6rem 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-lightgrey);
+  font-style: italic;
+  display: none;
+}
+
+.gallery-empty.visible {
+  display: block;
+}
+
+/* =============================================
+   RESPONSIVE — column count is set by JS
+   but padding/spacing adjusts here
+   ============================================= */
+
+@media (max-width: 599px) {
+  .gallery-page {
+    padding: 2rem var(--page-padding) 0;
+  }
+
+  .gallery-title {
+    margin-bottom: 1.5rem;
+  }
+
+  .photo-item figcaption {
+    font-size: 0.75rem;
+  }
+}

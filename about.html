@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <style>
+    /* =============================================
+       ABOUT PAGE
+       ============================================= */
+
+    .about-layout {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem var(--page-padding) 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-image-col img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(20%);
+    }
+
+    .about-text-col {
+      padding-top: 1rem;
+    }
+
+    .about-label {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-lightgrey);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text-col h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 2rem;
+      line-height: 1.1;
+    }
+
+    .about-text-col p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--color-midgrey);
+      margin-bottom: 1.4rem;
+    }
+
+    .about-text-col p:last-of-type {
+      margin-bottom: 2.5rem;
+    }
+
+    .about-divider {
+      border: none;
+      border-top: 1px solid #e0dbd2;
+      margin: 2.5rem 0;
+    }
+
+    .contact-heading {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .contact-link {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--color-midgrey);
+      border-bottom: 1px solid #e0dbd2;
+      padding-bottom: 2px;
+      transition: color 200ms ease, border-color 200ms ease;
+    }
+
+    .contact-link:hover {
+      color: var(--color-black);
+      border-color: var(--color-black);
+    }
+
+    /* No portrait image — show just text in a single column */
+    .about-layout.no-image {
+      grid-template-columns: 1fr;
+      max-width: 680px;
+    }
+
+    @media (max-width: 699px) {
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 2.5rem var(--page-padding) 4rem;
+      }
+
+      .about-text-col {
+        padding-top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="site-title">andie kolbeck</a>
+    <nav class="site-nav">
+<a href="street.html" data-page="street">Street</a>
+      <a href="earth.html" data-page="earth">Earth</a>
+      <a href="about.html" data-page="about">About</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+  </header>
+
+  <main>
+    <!--
+      ABOUT LAYOUT:
+      If you have a portrait photo, keep the two-column layout as-is and update the img src.
+      If you don't want an image, remove the .about-image-col div and add class "no-image"
+      to .about-layout.
+    -->
+    <div class="about-layout">
+
+      <!-- Portrait image column — remove or replace with your photo -->
+      <div class="about-image-col">
+        <!-- Replace the src with your own portrait image path -->
+        <!-- <img src="assets/portrait.jpg" alt="Photographer portrait"> -->
+        <!--
+          If you don't have a portrait, delete this div and add class "no-image"
+          to the about-layout div above.
+        -->
+      </div>
+
+      <div class="about-text-col">
+        <p class="about-label">About</p>
+        <h1>andie kolbeck</h1>
+
+        <p>
+          Write your artist statement or bio here. Tell the story of how you came to photography,
+          what draws you to it, and what you're trying to capture with your lens.
+        </p>
+
+        <p>
+          This is a good place to talk about the themes that run through your work — the tension
+          between stillness and motion, between the intimate and the vast, between the human and
+          the elemental.
+        </p>
+
+        <p>
+          Your Street series explores <em>urban life and its textures</em> — the unrepeatable
+          geometry of a corner, the weight of a glance between strangers. Your Earth series turns
+          the same attention outward, toward landscape and light.
+        </p>
+
+        <hr class="about-divider">
+
+        <h3 class="contact-heading">Contact</h3>
+        <a href="mailto:hello@yourname.com" class="contact-link">hello@yourname.com</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 andie kolbeck. All rights reserved. &nbsp;&middot;&nbsp; <a href="admin.html" class="footer-admin-link">Admin</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', initNav);
+  </script>
+</body>
+</html>

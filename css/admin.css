@@ -1,0 +1,409 @@
+/* =============================================
+   ADMIN — login form, upload panel
+   ============================================= */
+
+.admin-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================================
+   LOGIN FORM
+   ============================================= */
+
+#login-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem var(--page-padding);
+}
+
+#login-section.hidden,
+#upload-section.hidden {
+  display: none;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 360px;
+}
+
+.login-box h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.login-box .login-subtitle {
+  font-size: 0.85rem;
+  color: var(--color-lightgrey);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+/* =============================================
+   FORM ELEMENTS (shared)
+   ============================================= */
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-midgrey);
+  margin-bottom: 0.4rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: var(--color-offwhite);
+  border: 1px solid #d4cfc6;
+  color: var(--color-black);
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--color-midgrey);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+}
+
+/* =============================================
+   SPAN SELECTOR
+   ============================================= */
+
+.span-selector {
+  display: flex;
+  gap: 0;
+}
+
+.span-selector input[type="radio"] {
+  display: none;
+}
+
+.span-selector label {
+  flex: 1;
+  text-align: center;
+  padding: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  border: 1px solid #d4cfc6;
+  margin-left: -1px;
+  color: var(--color-midgrey);
+  transition: background var(--transition), color var(--transition);
+  user-select: none;
+}
+
+.span-selector label:first-of-type {
+  margin-left: 0;
+}
+
+.span-selector input[type="radio"]:checked + label {
+  background: var(--color-darkgrey);
+  color: var(--color-cream);
+  border-color: var(--color-darkgrey);
+  z-index: 1;
+}
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  border: 1px solid var(--color-black);
+  transition: background var(--transition), color var(--transition);
+}
+
+.btn-primary {
+  background: var(--color-black);
+  color: var(--color-cream);
+}
+
+.btn-primary:hover {
+  background: var(--color-darkgrey);
+  border-color: var(--color-darkgrey);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-black);
+}
+
+.btn-secondary:hover {
+  background: var(--color-cream);
+}
+
+.btn-danger {
+  background: transparent;
+  color: #c0392b;
+  border-color: #c0392b;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.7rem;
+}
+
+.btn-danger:hover {
+  background: #c0392b;
+  color: white;
+}
+
+/* =============================================
+   ERROR / SUCCESS MESSAGES
+   ============================================= */
+
+.msg {
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  margin-top: 1rem;
+  display: none;
+}
+
+.msg.visible {
+  display: block;
+}
+
+.msg-error {
+  background: #fdf0ee;
+  border-left: 3px solid #c0392b;
+  color: #7b2418;
+}
+
+.msg-success {
+  background: #eef7f0;
+  border-left: 3px solid #27ae60;
+  color: #1a5c33;
+}
+
+/* =============================================
+   UPLOAD SECTION
+   ============================================= */
+
+#upload-section {
+  padding: 2rem var(--page-padding) 4rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.admin-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-header h1 {
+  font-size: 1.6rem;
+}
+
+/* =============================================
+   UPLOAD FORM CARD
+   ============================================= */
+
+.upload-card {
+  border: 1px solid #e0dbd2;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  background: white;
+}
+
+.upload-card h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+
+/* =============================================
+   PROGRESS BAR
+   ============================================= */
+
+.progress-wrap {
+  margin-top: 1rem;
+  display: none;
+}
+
+.progress-wrap.visible {
+  display: block;
+}
+
+.progress-bar-track {
+  height: 2px;
+  background: #e0dbd2;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--color-black);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.progress-label {
+  font-size: 0.75rem;
+  color: var(--color-lightgrey);
+  margin-top: 0.4rem;
+}
+
+/* =============================================
+   PHOTO MANAGEMENT TABLE
+   ============================================= */
+
+.photos-table-section h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.gallery-filter {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.gallery-filter button {
+  background: none;
+  border: 1px solid #d4cfc6;
+  padding: 0.4rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--color-midgrey);
+  transition: all var(--transition);
+}
+
+.gallery-filter button.active,
+.gallery-filter button:hover {
+  background: var(--color-black);
+  color: var(--color-cream);
+  border-color: var(--color-black);
+}
+
+.photos-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+
+.photos-table th {
+  text-align: left;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-lightgrey);
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #e0dbd2;
+  font-weight: 400;
+}
+
+.photos-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #f0ebe2;
+  vertical-align: middle;
+}
+
+.photos-table tr:last-child td {
+  border-bottom: none;
+}
+
+.table-thumb {
+  width: 56px;
+  height: 40px;
+  object-fit: cover;
+  display: block;
+}
+
+.table-caption {
+  color: var(--color-midgrey);
+  font-style: italic;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table-gallery {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-lightgrey);
+}
+
+.table-span {
+  text-align: center;
+}
+
+.table-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.photos-table-empty {
+  text-align: center;
+  padding: 3rem;
+  color: var(--color-lightgrey);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+@media (max-width: 599px) {
+  .upload-card {
+    padding: 1.25rem;
+  }
+
+  .photos-table th:nth-child(3),
+  .photos-table td:nth-child(3) {
+    display: none;
+  }
+}

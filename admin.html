@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-page">
+
+  <header class="site-header">
+    <a href="index.html" class="site-title">andie kolbeck</a>
+    <nav class="site-nav">
+<a href="street.html" data-page="street">Street</a>
+      <a href="earth.html" data-page="earth">Earth</a>
+      <a href="about.html" data-page="about">About</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+  </header>
+
+  <!-- ============================================
+       LOGIN SECTION — shown when no session
+       ============================================ -->
+  <section id="login-section">
+    <div class="login-box">
+      <h1>Sign in</h1>
+      <p class="login-subtitle">Admin access only.</p>
+
+      <form id="login-form" novalidate>
+        <div class="form-group">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" autocomplete="email" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:0.5rem;">Sign In</button>
+      </form>
+
+      <div id="login-error" class="msg msg-error"></div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       UPLOAD SECTION — shown when session exists
+       ============================================ -->
+  <section id="upload-section" class="hidden">
+    <div class="admin-header">
+      <h1>Admin</h1>
+      <button id="logout-btn" class="btn btn-secondary">Sign Out</button>
+    </div>
+
+    <!-- Upload form -->
+    <div class="upload-card">
+      <h2>Upload a Photo</h2>
+      <form id="upload-form" novalidate>
+
+        <div class="form-group">
+          <label for="upload-gallery">Gallery</label>
+          <select id="upload-gallery">
+            <option value="street">Street</option>
+            <option value="earth">Earth</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="upload-file">Image file <span style="color:var(--color-lightgrey);font-size:0.8em;">(JPEG, PNG, WebP — max 10MB)</span></label>
+          <input type="file" id="upload-file" accept="image/jpeg,image/png,image/webp">
+        </div>
+
+        <div class="form-group">
+          <label for="upload-caption">Caption <span style="color:var(--color-lightgrey);font-size:0.8em;">(optional)</span></label>
+          <input type="text" id="upload-caption" placeholder="Add a caption…">
+        </div>
+
+        <div class="form-group">
+          <label>Column Span</label>
+          <div class="span-selector">
+            <input type="radio" name="col_span" id="span1" value="1" checked>
+            <label for="span1">1 — Portrait</label>
+
+            <input type="radio" name="col_span" id="span2" value="2">
+            <label for="span2">2 — Medium</label>
+
+            <input type="radio" name="col_span" id="span3" value="3">
+            <label for="span3">3 — Full width</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="upload-sort">Sort order <span style="color:var(--color-lightgrey);font-size:0.8em;">(lower = earlier in gallery)</span></label>
+          <input type="number" id="upload-sort" value="0" min="0">
+        </div>
+
+        <button type="submit" id="upload-btn" class="btn btn-primary">Upload Photo</button>
+
+        <!-- Progress bar -->
+        <div class="progress-wrap" id="progress-wrap">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-fill"></div>
+          </div>
+          <p class="progress-label" id="progress-label"></p>
+        </div>
+
+        <div id="upload-msg" class="msg"></div>
+      </form>
+    </div>
+
+    <!-- Photo management -->
+    <div class="photos-table-section">
+      <h2>Manage Photos</h2>
+
+      <div class="gallery-filter">
+        <button data-filter="street" class="active">Street</button>
+        <button data-filter="earth">Earth</button>
+      </div>
+
+      <table class="photos-table">
+        <thead>
+          <tr>
+            <th>Preview</th>
+            <th>Caption</th>
+            <th>Gallery</th>
+            <th>Span</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="photos-table-body">
+          <tr><td colspan="5" class="photos-table-empty">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 andie kolbeck. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/upload.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', initNav);
+  </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+/* =============================================
+   NAVIGATION
+   ============================================= */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem var(--page-padding);
+  background-color: var(--color-offwhite);
+  border-bottom: 1px solid #e0dbd2;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-black);
+  text-transform: uppercase;
+  transition: color var(--transition);
+}
+
+.site-title:hover {
+  color: var(--color-midgrey);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.site-nav a {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-midgrey);
+  transition: color var(--transition);
+  position: relative;
+}
+
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-black);
+  transform: scaleX(0);
+  transition: transform var(--transition);
+}
+
+.site-nav a:hover {
+  color: var(--color-black);
+}
+
+.site-nav a:hover::after,
+.site-nav a.active::after {
+  transform: scaleX(1);
+}
+
+.site-nav a.active {
+  color: var(--color-black);
+}
+
+
+/* Mobile toggle button */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 1.3rem;
+  color: var(--color-black);
+  line-height: 1;
+}
+
+/* =============================================
+   MOBILE NAV
+   ============================================= */
+
+@media (max-width: 599px) {
+  .site-header {
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 1.2rem var(--page-padding);
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .site-nav {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    width: 100%;
+    padding: 1.2rem 0 0.5rem;
+    border-top: 1px solid #e0dbd2;
+    margin-top: 1.2rem;
+  }
+
+  .site-header.nav-open .site-nav {
+    display: flex;
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Street — Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="site-title">andie kolbeck</a>
+    <nav class="site-nav">
+<a href="street.html" data-page="street">Street</a>
+      <a href="earth.html" data-page="earth">Earth</a>
+      <a href="about.html" data-page="about">About</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+  </header>
+
+  <main data-gallery="street">
+    <div class="gallery-page">
+      <h1 class="gallery-title">Street</h1>
+
+      <!-- Masonry container — JS populates and positions items -->
+      <div class="masonry-container" id="masonry">
+        <!-- Photo items inserted here by gallery.js -->
+        <div id="scroll-sentinel"></div>
+      </div>
+
+      <p class="gallery-empty">No photos yet.</p>
+
+      <div id="loading-indicator" aria-live="polite">Loading</div>
+      <div id="all-loaded-msg">— End —</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 andie kolbeck. All rights reserved. &nbsp;&middot;&nbsp; <a href="admin.html" class="footer-admin-link">Admin</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/gallery.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', initNav);
+  </script>
+</body>
+</html>
