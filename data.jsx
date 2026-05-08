@@ -1,12 +1,12 @@
 // Seed image store + global state.
-// In-memory only (resets on reload), per user spec.
+// Gallery changes persist to IndexedDB so they survive page refresh.
 
 const u = (id, w = 1600) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
 
 // Display modes:
 //   "portrait"  - 1 col, taller (3:4)
 //   "square"    - 2 cols, 1:1 (only on >=1100px desktop, falls back gracefully)
-//   "landscape" - spans all 3 cols, 3:2
+//   "landscape" - spans all 3 cols, natural aspect ratio
 const SEED = {
   street: [
     { id: "s1",  src: u("1502672023488-70e25813eb80"),       caption: "Lisbon, late afternoon",       mode: "portrait" },
@@ -42,13 +42,41 @@ const SEED = {
   ],
 };
 
-const HOMEPAGE_HERO = u("1490578474895-699cd4e2cf59", 2000); // single static hero, soft b&w landscape
+const HOMEPAGE_HERO = u("1490578474895-699cd4e2cf59", 2000);
 
 const GALLERIES = [
   { key: "street", label: "Street", blurb: "Cities, walking, found light." },
   { key: "earth",  label: "Earth",  blurb: "Land, weather, far places." },
   { key: "diary",  label: "Diary",  blurb: "Notes from days I want to remember." },
 ];
+
+// --- IndexedDB persistence layer -------------------------------------------
+const DB = (() => {
+  const NAME = "ak_portfolio", VER = 1, OS = "galleries";
+  let _db = null;
+  const open = () => {
+    if (_db) return Promise.resolve(_db);
+    return new Promise((res, rej) => {
+      const req = indexedDB.open(NAME, VER);
+      req.onupgradeneeded = e => e.target.result.createObjectStore(OS);
+      req.onsuccess = e => { _db = e.target.result; res(_db); };
+      req.onerror = e => rej(e.target.error);
+    });
+  };
+  return {
+    get: (key) => open().then(db => new Promise((res, rej) => {
+      const req = db.transaction(OS).objectStore(OS).get(key);
+      req.onsuccess = e => res(e.target.result ?? null);
+      req.onerror = e => rej(e.target.error);
+    })),
+    set: (key, val) => open().then(db => new Promise((res, rej) => {
+      const tx = db.transaction(OS, "readwrite");
+      tx.objectStore(OS).put(val, key);
+      tx.oncomplete = () => res();
+      tx.onerror = e => rej(e.target.error);
+    })),
+  };
+})();
 
 // --- Reactive store (tiny pub/sub) -----------------------------------------
 const Store = (() => {
@@ -57,31 +85,48 @@ const Store = (() => {
     auth: localStorage.getItem("ak_auth") === "1",
   };
   const subs = new Set();
+  const notify = () => subs.forEach(fn => fn(state));
+  const persist = (gallery) => DB.set(gallery, state.images[gallery]).catch(() => {});
+
+  // Hydrate from IndexedDB on startup — overrides SEED with any saved data
+  Promise.all(Object.keys(SEED).map(k => DB.get(k).then(v => [k, v]))).then(pairs => {
+    const loaded = { ...state.images };
+    let changed = false;
+    for (const [k, v] of pairs) {
+      if (v) { loaded[k] = v; changed = true; }
+    }
+    if (changed) { state = { ...state, images: loaded }; notify(); }
+  }).catch(() => {});
+
   return {
     get: () => state,
     sub: (fn) => { subs.add(fn); return () => subs.delete(fn); },
     set: (patch) => {
       state = { ...state, ...(typeof patch === "function" ? patch(state) : patch) };
-      subs.forEach(fn => fn(state));
+      notify();
     },
-    // image actions
-    addImage: (gallery, img) => Store.set(s => ({
-      images: { ...s.images, [gallery]: [img, ...s.images[gallery]] }
-    })),
-    deleteImage: (gallery, id) => Store.set(s => ({
-      images: { ...s.images, [gallery]: s.images[gallery].filter(i => i.id !== id) }
-    })),
-    updateImage: (gallery, id, patch) => Store.set(s => ({
-      images: { ...s.images, [gallery]: s.images[gallery].map(i => i.id === id ? { ...i, ...patch } : i) }
-    })),
+    addImage: (gallery, img) => {
+      Store.set(s => ({ images: { ...s.images, [gallery]: [img, ...s.images[gallery]] } }));
+      persist(gallery);
+    },
+    deleteImage: (gallery, id) => {
+      Store.set(s => ({ images: { ...s.images, [gallery]: s.images[gallery].filter(i => i.id !== id) } }));
+      persist(gallery);
+    },
+    updateImage: (gallery, id, patch) => {
+      Store.set(s => ({ images: { ...s.images, [gallery]: s.images[gallery].map(i => i.id === id ? { ...i, ...patch } : i) } }));
+      persist(gallery);
+    },
     reorder: (gallery, fromId, toId) => Store.set(s => {
       const list = [...s.images[gallery]];
-      const fromIdx = list.findIndex(i => i.id === fromId);
-      const toIdx   = list.findIndex(i => i.id === toId);
-      if (fromIdx < 0 || toIdx < 0) return {};
-      const [moved] = list.splice(fromIdx, 1);
-      list.splice(toIdx, 0, moved);
-      return { images: { ...s.images, [gallery]: list } };
+      const fi = list.findIndex(i => i.id === fromId);
+      const ti = list.findIndex(i => i.id === toId);
+      if (fi < 0 || ti < 0) return {};
+      const [moved] = list.splice(fi, 1);
+      list.splice(ti, 0, moved);
+      Store.set({ images: { ...s.images, [gallery]: list } });
+      persist(gallery);
+      return {};
     }),
     login: () => { localStorage.setItem("ak_auth", "1"); Store.set({ auth: true }); },
     logout: () => { localStorage.removeItem("ak_auth"); Store.set({ auth: false }); },
@@ -103,7 +148,6 @@ function useHashRoute() {
     window.addEventListener("hashchange", onChange);
     return () => window.removeEventListener("hashchange", onChange);
   }, []);
-  // Parse: "#/photo/street/s2" -> {path:["photo","street","s2"]}
   const path = hash.replace(/^#\/?/, "").split("/").filter(Boolean);
   return { hash, path, navigate: (h) => { window.location.hash = h; } };
 }

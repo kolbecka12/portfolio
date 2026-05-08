@@ -77,6 +77,30 @@ function LoginPage() {
 }
 
 // ============================================================
+// Upload via Cloudflare Worker (token lives server-side)
+// After deploying upload-worker/worker.js, paste your worker URL here:
+// ============================================================
+const UPLOAD_WORKER_URL = "/.netlify/functions/upload";
+
+async function uploadViaWorker(gallery, file) {
+  if (!UPLOAD_WORKER_URL) throw new Error("UPLOAD_WORKER_URL not configured");
+  const base64 = await new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = (e) => res(e.target.result.split(",")[1]);
+    r.onerror = rej;
+    r.readAsDataURL(file);
+  });
+  const resp = await fetch(UPLOAD_WORKER_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ gallery, filename: file.name, content: base64 }),
+  });
+  const data = await resp.json();
+  if (!resp.ok) throw new Error(data.error || `Upload error ${resp.status}`);
+  return data.url;
+}
+
+// ============================================================
 // ADMIN PICKER — choose Earth / Street / Diary
 // ============================================================
 function AdminPickerPage() {
@@ -151,6 +175,7 @@ function AdminPickerPage() {
             </a>
           ))}
         </div>
+
       </main>
     </div>
   );
@@ -441,10 +466,9 @@ function UploadModal({ galleryKey, onClose }) {
     mode: "portrait",
   });
   const [filePreview, setFilePreview] = React.useState(null);
+  const [uploadStatus, setUploadStatus] = React.useState(null); // null | "uploading" | "done" | "error"
+  const [uploadError, setUploadError] = React.useState("");
   const fileRef = React.useRef(null);
-
-  // auto-create on first complete state? We'll save automatically as fields change
-  // by giving an id once src set, then continuing to update.
   const idRef = React.useRef(null);
 
   const ensureSaved = (patch) => {
@@ -466,30 +490,68 @@ function UploadModal({ galleryKey, onClose }) {
     }
   };
 
-  const onFile = (e) => {
+  const onFile = async (e) => {
     const f = e.target.files?.[0];
     if (!f) return;
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      const src = ev.target.result;
-      setFilePreview(src);
-      ensureSaved({ src });
-    };
-    reader.readAsDataURL(f);
+
+    // Show local preview immediately
+    setFilePreview(URL.createObjectURL(f));
+
+    if (UPLOAD_WORKER_URL) {
+      setUploadStatus("uploading");
+      setUploadError("");
+      try {
+        const url = await uploadViaWorker(galleryKey, f);
+        setUploadStatus("done");
+        ensureSaved({ src: url });
+      } catch (err) {
+        setUploadStatus("error");
+        setUploadError(err.message || "Upload failed");
+        // Fall back to base64 so the photo isn't lost
+        const reader = new FileReader();
+        reader.onload = (ev) => ensureSaved({ src: ev.target.result });
+        reader.readAsDataURL(f);
+      }
+    } else {
+      // Worker not configured — store as base64 (browser only)
+      const reader = new FileReader();
+      reader.onload = (ev) => ensureSaved({ src: ev.target.result });
+      reader.readAsDataURL(f);
+    }
+  };
+
+  const statusLabel = () => {
+    if (uploadStatus === "uploading") return "⟳ Uploading to GitHub…";
+    if (uploadStatus === "done") return "● Saved to GitHub · " + galleryKey;
+    if (uploadStatus === "error") return "✕ " + uploadError + " (saved locally as fallback)";
+    if (idRef.current && !UPLOAD_WORKER_URL) return "● Saved in browser only · " + galleryKey;
+    if (idRef.current) return "● Saved to " + galleryKey;
+    return "○ Waiting for image";
+  };
+
+  const statusColor = () => {
+    if (uploadStatus === "error") return "#b04040";
+    if (uploadStatus === "uploading") return "var(--ink-muted)";
+    return idRef.current ? "var(--ink)" : "var(--ink-muted)";
+  };
+
+  const subtitle = () => {
+    if (uploadStatus === "uploading") return "Uploading…";
+    if (idRef.current) return "Saved · changes auto-save";
+    return "Pick an image to begin";
   };
 
   return (
-    <Modal title="Upload photograph" onClose={onClose}
-      subtitle={idRef.current ? "Saved · changes auto-save" : "Pick an image to begin"}>
+    <Modal title="Upload photograph" onClose={onClose} subtitle={subtitle()}>
       <div style={{ display: "grid", gridTemplateColumns: "260px 1fr", gap: 28 }}>
         <div>
           <div
-            onClick={() => fileRef.current?.click()}
+            onClick={() => uploadStatus !== "uploading" && fileRef.current?.click()}
             style={{
               aspectRatio: "3 / 4",
               border: "1px dashed var(--rule)",
               display: "grid", placeItems: "center",
-              cursor: "pointer",
+              cursor: uploadStatus === "uploading" ? "wait" : "pointer",
               background: filePreview || draft.src ? "transparent" : "#faf8f3",
               overflow: "hidden",
               position: "relative",
@@ -506,6 +568,17 @@ function UploadModal({ galleryKey, onClose }) {
               }}>
                 <div style={{ fontSize: 28, color: "var(--ink-soft)", marginBottom: 8, fontFamily: "var(--serif)" }}>+</div>
                 Click to choose<br/>or paste a URL
+              </div>
+            )}
+            {uploadStatus === "uploading" && (
+              <div style={{
+                position: "absolute", inset: 0,
+                background: "rgba(253,253,251,0.7)",
+                display: "grid", placeItems: "center",
+                fontFamily: "var(--sans)", fontSize: 11, letterSpacing: "0.18em",
+                textTransform: "uppercase", color: "var(--ink)",
+              }}>
+                Uploading…
               </div>
             )}
           </div>
@@ -534,11 +607,9 @@ function UploadModal({ galleryKey, onClose }) {
             marginTop: 6,
             fontFamily: "var(--sans)", fontSize: 11, letterSpacing: "0.18em",
             textTransform: "uppercase",
-            color: idRef.current ? "var(--ink)" : "var(--ink-muted)",
+            color: statusColor(),
           }}>
-            {idRef.current
-              ? "● Saved to " + galleryKey
-              : "○ Waiting for image"}
+            {statusLabel()}
           </div>
         </div>
       </div>
