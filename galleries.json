@@ -125,12 +125,6 @@
   ],
   "diary": [
     {
-      "id": "ux2zzog",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614370793-PXL_20250115_212240212.jpg",
-      "caption": "Mitte [Berlin], 2025",
-      "mode": "portrait"
-    },
-    {
       "id": "uy1zh90",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614935595-PXL_20250214_174850522.jpg",
       "caption": "Las Palmas [Gran Canaria] SP, 2025",
@@ -140,6 +134,12 @@
       "id": "uoggzyy",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614873556-PXL_20240518_174459010.jpg",
       "caption": "Untitled",
+      "mode": "portrait"
+    },
+    {
+      "id": "ux2zzog",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614370793-PXL_20250115_212240212.jpg",
+      "caption": "Mitte [Berlin], 2025",
       "mode": "portrait"
     },
     {
