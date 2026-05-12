@@ -137,12 +137,6 @@
       "mode": "portrait"
     },
     {
-      "id": "ux2zzog",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614370793-PXL_20250115_212240212.jpg",
-      "caption": "Mitte [Berlin], 2025",
-      "mode": "portrait"
-    },
-    {
       "id": "ump2fja",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614688011-DSC01036.JPG",
       "caption": "Abandoned Hotel near Sete Cidades [São Miguel] PT, 2024",
@@ -152,6 +146,12 @@
       "id": "uqru3vz",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614435547-DSC01835.JPG",
       "caption": "Puerto de Mogán [Gran Canaria], ES, 2025",
+      "mode": "portrait"
+    },
+    {
+      "id": "ux2zzog",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614370793-PXL_20250115_212240212.jpg",
+      "caption": "Mitte [Berlin], 2025",
       "mode": "portrait"
     },
     {
