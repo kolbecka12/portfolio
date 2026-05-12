@@ -115,9 +115,8 @@ const Store = (() => {
     syncToGitHub(state.images);
   };
 
-  // Hydrate: try galleries.json from GitHub first, fall back to IndexedDB
-  const GH_STATE_URL = "https://raw.githubusercontent.com/kolbecka12/portfolio/main/galleries.json";
-  fetch(`${GH_STATE_URL}?t=${Date.now()}`)
+  // Hydrate: fetch galleries.json served by Netlify (always fresh after each deploy)
+  fetch(`/galleries.json?t=${Date.now()}`)
     .then(r => r.ok ? r.json() : null)
     .then(ghImages => {
       if (ghImages) {
