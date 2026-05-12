@@ -125,9 +125,15 @@
   ],
   "diary": [
     {
+      "id": "ulxow5n",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614202866-PXL_20250701_143544882.jpg",
+      "caption": "Untitled",
+      "mode": "portrait"
+    },
+    {
       "id": "utfy1zh",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614158626-PXL_20250324_150045737.jpg",
-      "caption": "Mit [Berlin], 2025",
+      "caption": "Mitte [Berlin], 2025",
       "mode": "portrait"
     },
     {
