@@ -399,6 +399,9 @@ function AboutPage() {
               <p style={{ margin: 0 }}>
                 I will probably keep doing this until I die and the nettles come for me too.
               </p>
+              <p style={{ margin: 0 }}>
+                See my product design work at <a href="https://www.andiekolbeck.com" target="_blank" rel="noreferrer" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: "3px" }}>andiekolbeck.com</a>.
+              </p>
             </div>
 
             <div style={{
