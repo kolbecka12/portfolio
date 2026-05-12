@@ -358,6 +358,7 @@ function AboutPage() {
           @media (max-width: 820px) {
             .about-grid { grid-template-columns: 1fr !important; }
             .about-image { height: 50vh !important; min-height: 50vh !important; order: -1; }
+            .about-image img { object-position: top; }
             .about-text { padding: 40px 28px 60px 28px !important; }
           }
         `}</style>
