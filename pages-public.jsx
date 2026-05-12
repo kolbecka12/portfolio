@@ -111,14 +111,14 @@ function HomePage({ tweaks }) {
             display: "flex", alignItems: "center", gap: 22,
             marginTop: 40
           }}>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer"
+            <a href="https://instagram.com/hello_kosmos" target="_blank" rel="noreferrer"
             aria-label="Instagram"
             style={{ color: "var(--ink-soft)", display: "inline-flex" }}
             onMouseEnter={(e) => e.currentTarget.style.color = "var(--ink)"}
             onMouseLeave={(e) => e.currentTarget.style.color = "var(--ink-soft)"}>
               <Icon.Instagram />
             </a>
-            <a href="https://unsplash.com" target="_blank" rel="noreferrer"
+            <a href="https://unsplash.com/@kolbecka" target="_blank" rel="noreferrer"
             aria-label="Unsplash"
             style={{ color: "var(--ink-soft)", display: "inline-flex" }}
             onMouseEnter={(e) => e.currentTarget.style.color = "var(--ink)"}
@@ -403,11 +403,11 @@ function AboutPage() {
               marginTop: 56,
               display: "flex", gap: 20, alignItems: "center",
             }}>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer"
+              <a href="https://instagram.com/hello_kosmos" target="_blank" rel="noreferrer"
               style={{ display: "inline-flex", color: "var(--ink-soft)" }}>
                 <Icon.Instagram size={18} />
               </a>
-              <a href="https://unsplash.com" target="_blank" rel="noreferrer"
+              <a href="https://unsplash.com/@kolbecka" target="_blank" rel="noreferrer"
               style={{ display: "inline-flex", color: "var(--ink-soft)" }}>
                 <Icon.Unsplash size={18} />
               </a>
