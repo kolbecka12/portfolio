@@ -125,12 +125,6 @@
   ],
   "diary": [
     {
-      "id": "d2",
-      "src": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=80",
-      "caption": "Coffee, somewhere quiet",
-      "mode": "portrait"
-    },
-    {
       "id": "d3",
       "src": "https://images.unsplash.com/photo-1517593456013-3e3f1f3d3679?auto=format&fit=crop&w=2400&q=80",
       "caption": "The long hallway",
