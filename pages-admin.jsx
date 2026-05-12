@@ -216,11 +216,10 @@ function AdminManagePage({ galleryKey }) {
   const [dragId, setDragId] = React.useState(null);
   const [dragOverId, setDragOverId] = React.useState(null);
   const w = useViewport();
-  const cols = w >= 1100 ? 3 : w >= 700 ? 2 : 1;
+  const cols = w >= 700 ? 2 : 1;
 
   const layout = (img) => {
     if (img.mode === "landscape") return { span: cols, aspect: "natural" };
-    if (img.mode === "square") return { span: Math.min(2, cols), aspect: "1 / 1" };
     return { span: 1, aspect: "3 / 4" };
   };
 
@@ -643,8 +642,7 @@ function UploadModal({ galleryKey, onClose }) {
 function ModeSelect({ value, onChange }) {
   const opts = [
     { v: "portrait",  label: "Portrait",  hint: "1 column · 3:4" },
-    { v: "square",    label: "Square",    hint: "2 cols on desktop · 1:1" },
-    { v: "landscape", label: "Landscape", hint: "Full width · 3:2" },
+    { v: "landscape", label: "Landscape", hint: "Full width · both columns" },
   ];
   return (
     <div className="field">

@@ -161,12 +161,10 @@ function GalleryPage({ galleryKey, tweaks }) {
   const list = images[galleryKey] || [];
   const meta = GALLERIES.find((g) => g.key === galleryKey);
   const w = useViewport();
-  const cols = w >= 1100 ? 3 : w >= 700 ? 2 : 1;
+  const cols = w >= 700 ? 2 : 1;
 
-  // Resolve mode -> column span and aspect ratio for current cols
   const layout = (img) => {
     if (img.mode === "landscape") return { span: cols, aspect: "natural" };
-    if (img.mode === "square") return { span: Math.min(2, cols), aspect: "1 / 1" };
     return { span: 1, aspect: "3 / 4" }; // portrait
   };
 
