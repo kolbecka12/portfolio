@@ -37,7 +37,7 @@ function HomePage({ tweaks }) {
             content: "";
             position: absolute;
             inset: 0;
-            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80&sat=-100');
+            background-image: url('home-photo.jpeg');
             background-size: cover;
             background-position: center;
             opacity: 0.15;
