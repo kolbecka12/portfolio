@@ -425,7 +425,7 @@ function AboutPage() {
             position: "relative", overflow: "hidden", minHeight: "100vh"
           }}>
             <ImageCell
-              src="https://images.unsplash.com/photo-1488161628813-04466f872be2?auto=format&fit=crop&w=1400&q=80"
+              src="about-photo.jpg"
               alt="Andie Kolbeck portrait"
               style={{ width: "100%", height: "100%", aspectRatio: "auto" }}
               className="img-fade" />

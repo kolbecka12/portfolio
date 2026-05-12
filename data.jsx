@@ -42,7 +42,7 @@ const SEED = {
   ],
 };
 
-const HOMEPAGE_HERO = u("1490578474895-699cd4e2cf59", 2000);
+const HOMEPAGE_HERO = "home-photo.jpeg";
 
 const GALLERIES = [
   { key: "street", label: "Street", blurb: "Cities, walking, found light." },
