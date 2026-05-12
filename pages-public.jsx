@@ -43,14 +43,6 @@ function HomePage({ tweaks }) {
             opacity: 0.25;
             pointer-events: none;
           }
-          .home-social {
-            position: fixed !important;
-            bottom: 0; left: 0; right: 0;
-            margin: 0 !important;
-            padding: 20px 28px;
-            background: linear-gradient(to top, var(--bg) 70%, transparent);
-            z-index: 2;
-          }
           .home-studio-login { display: none !important; }
         }
       `}</style>
