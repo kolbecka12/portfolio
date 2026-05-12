@@ -288,6 +288,11 @@ function LightboxPage({ galleryKey, photoId }) {
     onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
       <Topbar crumb={meta.label} current={galleryKey} />
 
+      <style>{`
+        @media (max-width: 600px) {
+          .lightbox-img { width: 100% !important; max-height: calc(100vh - 200px) !important; box-shadow: none !important; }
+        }
+      `}</style>
       <div style={{
         minHeight: "100vh",
         display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
@@ -322,7 +327,7 @@ function LightboxPage({ galleryKey, photoId }) {
           key={img.id}
           src={img.src}
           alt={img.caption}
-          className="img-fade"
+          className="img-fade lightbox-img"
           style={{
             maxWidth: "100%", maxHeight: "calc(100vh - 280px)",
             objectFit: "contain",
