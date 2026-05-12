@@ -79,13 +79,28 @@ const DB = (() => {
 })();
 
 // --- Sync gallery state to GitHub via Netlify function ----------------------
-const syncToGitHub = (images) => {
-  fetch("/.netlify/functions/sync", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ images }),
-  }).catch(() => {});
-};
+// Queued so rapid uploads don't cause SHA conflicts on galleries.json
+const _syncQueue = (() => {
+  let running = false;
+  let pending = null;
+  const run = () => {
+    if (running || !pending) return;
+    running = true;
+    const images = pending;
+    pending = null;
+    fetch("/.netlify/functions/sync", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ images }),
+    }).catch(() => {}).finally(() => {
+      running = false;
+      run(); // process next if queued
+    });
+  };
+  return (images) => { pending = images; run(); };
+})();
+
+const syncToGitHub = (images) => _syncQueue(images);
 
 // --- Reactive store (tiny pub/sub) -----------------------------------------
 const Store = (() => {
