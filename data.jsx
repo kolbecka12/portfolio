@@ -78,6 +78,15 @@ const DB = (() => {
   };
 })();
 
+// --- Sync gallery state to GitHub via Netlify function ----------------------
+const syncToGitHub = (images) => {
+  fetch("/.netlify/functions/sync", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ images }),
+  }).catch(() => {});
+};
+
 // --- Reactive store (tiny pub/sub) -----------------------------------------
 const Store = (() => {
   let state = {
@@ -86,17 +95,35 @@ const Store = (() => {
   };
   const subs = new Set();
   const notify = () => subs.forEach(fn => fn(state));
-  const persist = (gallery) => DB.set(gallery, state.images[gallery]).catch(() => {});
+  const persist = (gallery) => {
+    DB.set(gallery, state.images[gallery]).catch(() => {});
+    syncToGitHub(state.images);
+  };
 
-  // Hydrate from IndexedDB on startup — overrides SEED with any saved data
-  Promise.all(Object.keys(SEED).map(k => DB.get(k).then(v => [k, v]))).then(pairs => {
-    const loaded = { ...state.images };
-    let changed = false;
-    for (const [k, v] of pairs) {
-      if (v) { loaded[k] = v; changed = true; }
-    }
-    if (changed) { state = { ...state, images: loaded }; notify(); }
-  }).catch(() => {});
+  // Hydrate: try galleries.json from GitHub first, fall back to IndexedDB
+  const GH_STATE_URL = "https://raw.githubusercontent.com/kolbecka12/portfolio/main/galleries.json";
+  fetch(`${GH_STATE_URL}?t=${Date.now()}`)
+    .then(r => r.ok ? r.json() : null)
+    .then(ghImages => {
+      if (ghImages) {
+        state = { ...state, images: ghImages };
+        notify();
+        Object.keys(ghImages).forEach(k => DB.set(k, ghImages[k]).catch(() => {}));
+      } else {
+        throw new Error("no gh state");
+      }
+    })
+    .catch(() => {
+      // Fall back to IndexedDB
+      Promise.all(Object.keys(SEED).map(k => DB.get(k).then(v => [k, v]))).then(pairs => {
+        const loaded = { ...state.images };
+        let changed = false;
+        for (const [k, v] of pairs) {
+          if (v) { loaded[k] = v; changed = true; }
+        }
+        if (changed) { state = { ...state, images: loaded }; notify(); }
+      }).catch(() => {});
+    });
 
   return {
     get: () => state,
