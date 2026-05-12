@@ -40,7 +40,7 @@ function HomePage({ tweaks }) {
             background-image: url('home-photo.jpeg');
             background-size: cover;
             background-position: center;
-            opacity: 0.15;
+            opacity: 0.25;
             pointer-events: none;
           }
         }
