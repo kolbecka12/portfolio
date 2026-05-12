@@ -125,9 +125,15 @@
   ],
   "diary": [
     {
+      "id": "usr8aem",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778613856420-DSC01041.JPG",
+      "caption": "Untitled",
+      "mode": "portrait"
+    },
+    {
       "id": "usrsu14",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778613835105-DSC02109.JPG",
-      "caption": "Treptower Park [Be",
+      "caption": "Treptower Park [Berlin], 2025",
       "mode": "portrait"
     },
     {
