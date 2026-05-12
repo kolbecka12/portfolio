@@ -26,6 +26,8 @@ exports.handler = async (event) => {
     };
   }
 
+  console.log("Password env present:", !!process.env.ADMIN_PASSWORD);
+  console.log("Password match:", password === process.env.ADMIN_PASSWORD);
   if (password !== process.env.ADMIN_PASSWORD) {
     return {
       statusCode: 401,
