@@ -1,183 +1,129 @@
 {
   "street": [
     {
-      "id": "u06ib2j",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596084490-Vienna-12.2024-04.JPG",
+      "id": "unfqler",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778589653119-PXL_20260506_115710715.jpg",
       "caption": "Untitled",
       "mode": "portrait"
     },
     {
-      "id": "ux0564t",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596073215-2025-brighton-compressed.jpg",
+      "id": "uov0fcc",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778589479039-PXL_20260503_131926103.jpg",
       "caption": "Untitled",
       "mode": "portrait"
     },
     {
-      "id": "u99fejc",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596052944-2015-thailand-02.jpg",
-      "caption": "Untitled",
+      "id": "s1",
+      "src": "https://images.unsplash.com/photo-1502672023488-70e25813eb80?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Lisbon, late afternoon",
+      "mode": "portrait"
+    },
+    {
+      "id": "s2",
+      "src": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Marais, after rain",
+      "mode": "portrait"
+    },
+    {
+      "id": "s3",
+      "src": "https://images.unsplash.com/photo-1473093226795-af9932fe5856?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Tram, Hong Kong",
+      "mode": "portrait"
+    },
+    {
+      "id": "s4",
+      "src": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=2400&q=80",
+      "caption": "Crossing — 6th & Mission",
       "mode": "landscape"
     },
     {
-      "id": "udvqf2b",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596041633-2025-limoges-compressed.jpg",
-      "caption": "Untitled",
+      "id": "s5",
+      "src": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Ginza, midnight",
       "mode": "portrait"
     },
     {
-      "id": "uuk5xmy",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596027030-2012-Niki-RRSq-01.JPG",
-      "caption": "Untitled",
-      "mode": "square"
-    },
-    {
-      "id": "ua7o4bn",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596017570-2025-london_lg-4-compressesd.jpg",
-      "caption": "Untitled",
+      "id": "s6",
+      "src": "https://images.unsplash.com/photo-1502209524164-acea936639a2?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Awning, Naples",
       "mode": "portrait"
     },
     {
-      "id": "uwt1k6s",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596003584-2025-july-butzowstrasse-compressed.jpg",
-      "caption": "Untitled",
+      "id": "s7",
+      "src": "https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Crowd, Shibuya",
       "mode": "portrait"
     },
     {
-      "id": "u3xpcvq",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778595990857-Budapest-2_05.2022.jpg",
-      "caption": "Untitled",
+      "id": "s8",
+      "src": "https://images.unsplash.com/photo-1431274172761-fca41d930114?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Doorway, Marrakech",
       "mode": "portrait"
     },
     {
-      "id": "ubqr8yf",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778595973443-2015-thailand-03.jpg",
-      "caption": "Untitled",
-      "mode": "landscape"
-    },
-    {
-      "id": "uz3fv36",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778595954963-2025-koln-nl-xxbw-08.jpg",
-      "caption": "Untitled",
+      "id": "s9",
+      "src": "https://images.unsplash.com/photo-1496564203457-11bb12075d90?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Avenue, Paris",
       "mode": "portrait"
-    },
-    {
-      "id": "uotoaon",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778595938143-Ilford400-_Berlin-2024-02-cropped.jpg",
-      "caption": "Untitled",
-      "mode": "portrait"
-    },
-    {
-      "id": "uoihizp",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778595926467-2025-koln-nl-xxbw-18-2.jpg",
-      "caption": "Untitled",
-      "mode": "portrait"
-    },
-    {
-      "id": "ud3wc3l",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778595915551-2014-nicaragua-02.jpeg",
-      "caption": "Untitled",
-      "mode": "landscape"
     }
   ],
   "earth": [
     {
-      "id": "uzj6t3y",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778595158065-pomo_canyon-2018.jpeg",
-      "caption": "Untitled",
+      "id": "e1",
+      "src": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2400&q=80",
+      "caption": "Foothills, dawn",
       "mode": "landscape"
     },
     {
-      "id": "u29t5rc",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778595133163-Beelitz-01-Portra-2022.JPG",
-      "caption": "Untitled",
+      "id": "e2",
+      "src": "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Pine, Sierra Nevada",
       "mode": "portrait"
     },
     {
-      "id": "untkmjl",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778595123001-Beelitz-02-Portra-2022.jpg",
-      "caption": "Untitled",
+      "id": "e3",
+      "src": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Forest, Olympic National Park",
       "mode": "portrait"
     },
     {
-      "id": "ugmypfg",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778595037160-2016-dec-365-02.jpg",
-      "caption": "Untitled",
+      "id": "e4",
+      "src": "https://images.unsplash.com/photo-1426604966848-d7adac402bff?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Ridge, Patagonia",
       "mode": "portrait"
     },
     {
-      "id": "uphsxtj",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778595020984-2016-dec-365-01.jpg",
-      "caption": "Untitled",
-      "mode": "portrait"
-    },
-    {
-      "id": "u5gv58q",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778595010482-2017-april-365-01.jpg",
-      "caption": "Untitled",
-      "mode": "portrait"
-    },
-    {
-      "id": "u6dyikh",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778594999179-2015-summer-03.jpeg",
-      "caption": "Untitled",
+      "id": "e5",
+      "src": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2400&q=80",
+      "caption": "Lake Wanaka",
       "mode": "landscape"
     },
     {
-      "id": "uxaeytd",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778594984520-Denver-Portra-2019-02.jpg",
-      "caption": "Untitled",
-      "mode": "landscape"
-    },
-    {
-      "id": "ux436j3",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778594956959-2015-columbia-gorge-02.jpeg",
-      "caption": "Untitled",
-      "mode": "landscape"
-    },
-    {
-      "id": "uamhr0r",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778594947179-Su_dgela_nde03-2023-compressed.jpg",
-      "caption": "Untitled",
+      "id": "e6",
+      "src": "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Cliff, Iceland",
       "mode": "portrait"
     },
     {
-      "id": "uqi3ytn",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778594932247-Saxony01-2022.jpg",
-      "caption": "Untitled",
+      "id": "e7",
+      "src": "https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Glacier, edge of the cirque",
       "mode": "portrait"
     },
     {
-      "id": "uayylbi",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778594919740-Helios-Nov2024-edited.jpg",
-      "caption": "Untitled",
+      "id": "e8",
+      "src": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Conifers, first light",
       "mode": "portrait"
     },
     {
-      "id": "ufse3kt",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778594897265-2026-tenerife-01-compressed.jpg",
-      "caption": "Untitled",
+      "id": "e9",
+      "src": "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
+      "caption": "Dune, evening",
       "mode": "portrait"
-    },
-    {
-      "id": "u1gcxwt",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778594870038-2025-summer-fuji-velvia-02.JPG",
-      "caption": "Untitled",
-      "mode": "portrait"
-    },
-    {
-      "id": "u3k7at8",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/earth/1778594826505-2015-summer-02.jpeg",
-      "caption": "Untitled",
-      "mode": "square"
     }
   ],
   "diary": [
-    {
-      "id": "d1",
-      "src": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80",
-      "caption": "Window, no. 14",
-      "mode": "portrait"
-    },
     {
       "id": "d2",
       "src": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=80",
