@@ -172,10 +172,11 @@ function GalleryPage({ galleryKey, tweaks }) {
   return (
     <div className="page">
       <Topbar crumb={meta.label} current={galleryKey} solid />
-      <main style={{
-        paddingTop: 96,
-        paddingLeft: 40, paddingRight: 40, paddingBottom: 80
-      }}>
+      <style>{`
+        .gallery-main { padding: 96px 40px 80px; }
+        @media (max-width: 600px) { .gallery-main { padding: 96px 16px 80px; } }
+      `}</style>
+      <main className="gallery-main">
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div style={{
           display: "grid",
