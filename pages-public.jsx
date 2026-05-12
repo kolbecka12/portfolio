@@ -176,6 +176,7 @@ function GalleryPage({ galleryKey, tweaks }) {
         paddingTop: 96,
         paddingLeft: 40, paddingRight: 40, paddingBottom: 80
       }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         <div style={{
           display: "grid",
           gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
@@ -229,6 +230,7 @@ function GalleryPage({ galleryKey, tweaks }) {
         }}>
           <span>© Andie Kolbeck 2026</span>
         </footer>
+        </div>
       </main>
     </div>);
 
