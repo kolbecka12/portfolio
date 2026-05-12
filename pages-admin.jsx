@@ -4,19 +4,39 @@
 // LOGIN PAGE
 // ============================================================
 function LoginPage() {
-  const [email, setEmail] = React.useState("andie@studio.com");
   const [pw, setPw] = React.useState("");
   const [shake, setShake] = React.useState(false);
+  const [error, setError] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    if (!email || !pw) {
+    if (!pw) {
       setShake(true);
       setTimeout(() => setShake(false), 400);
       return;
     }
-    Store.login();
-    window.location.hash = "#/admin";
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/.netlify/functions/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: pw }),
+      });
+      if (res.ok) {
+        Store.login();
+        window.location.hash = "#/admin";
+      } else {
+        setError("Incorrect password");
+        setShake(true);
+        setTimeout(() => setShake(false), 400);
+      }
+    } catch {
+      setError("Something went wrong, try again");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -55,16 +75,19 @@ function LoginPage() {
         </div>
 
         <div className="field">
-          <label>Email</label>
-          <input type="email" value={email} onChange={e => setEmail(e.target.value)} autoFocus />
-        </div>
-        <div className="field">
           <label>Password</label>
-          <input type="password" value={pw} onChange={e => setPw(e.target.value)} placeholder="any password works" />
+          <input type="password" value={pw} onChange={e => setPw(e.target.value)} autoFocus />
         </div>
 
-        <button type="submit" className="btn" style={{ alignSelf: "flex-start" }}>
-          Enter Studio
+        {error && (
+          <p style={{
+            fontFamily: "var(--sans)", fontSize: 12, color: "#b04040",
+            margin: 0, letterSpacing: "0.04em",
+          }}>{error}</p>
+        )}
+
+        <button type="submit" className="btn" style={{ alignSelf: "flex-start" }} disabled={loading}>
+          {loading ? "Checking…" : "Enter Studio"}
         </button>
 
         <a href="#/" style={{
