@@ -125,9 +125,15 @@
   ],
   "diary": [
     {
+      "id": "ux2zzog",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614370793-PXL_20250115_212240212.jpg",
+      "caption": "Mitte [Berlin], 2025",
+      "mode": "portrait"
+    },
+    {
       "id": "uy1zh90",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614935595-PXL_20250214_174850522.jpg",
-      "caption": "Las Palmas [Gr SP, 2025",
+      "caption": "Las Palmas [Gran Canaria] SP, 2025",
       "mode": "portrait"
     },
     {
@@ -152,12 +158,6 @@
       "id": "u38cg0b",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614388857-DSC02255.JPG",
       "caption": "Tempelhofer Feld [Berlin], 2025",
-      "mode": "portrait"
-    },
-    {
-      "id": "ux2zzog",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614370793-PXL_20250115_212240212.jpg",
-      "caption": "Mitte [Berlin], 2025",
       "mode": "portrait"
     },
     {
