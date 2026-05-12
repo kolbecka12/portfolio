@@ -69,12 +69,6 @@
   ],
   "earth": [
     {
-      "id": "e1",
-      "src": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2400&q=80",
-      "caption": "Foothills, dawn",
-      "mode": "landscape"
-    },
-    {
       "id": "e2",
       "src": "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?auto=format&fit=crop&w=1600&q=80",
       "caption": "Pine, Sierra Nevada",
