@@ -51,6 +51,9 @@ exports.handler = async (event) => {
 
   if (!ghRes.ok) {
     const err = await ghRes.json().catch(() => ({}));
+    console.log("GitHub error:", ghRes.status, JSON.stringify(err));
+    console.log("Token present:", !!process.env.GITHUB_TOKEN);
+    console.log("Path:", path);
     return {
       statusCode: ghRes.status,
       headers: { "Content-Type": "application/json" },
