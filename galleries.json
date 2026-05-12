@@ -179,15 +179,15 @@
   ],
   "diary": [
     {
-      "id": "d-1778613772125",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778613772125-PXL_20251220_171746121.NIGHT.jpg",
-      "caption": "Friedrichshain, Berlin, DE | 2026",
-      "mode": "portrait"
-    },
-    {
       "id": "d-1778613718060",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778613718060-PXL_20260117_154251087.jpg",
       "caption": "Alexanderplatz, Berlin, DE | 2026",
+      "mode": "portrait"
+    },
+    {
+      "id": "d-1778613772125",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778613772125-PXL_20251220_171746121.NIGHT.jpg",
+      "caption": "Friedrichshain, Berlin, DE | 2026",
       "mode": "portrait"
     },
     {
