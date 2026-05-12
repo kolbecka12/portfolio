@@ -125,9 +125,15 @@
   ],
   "diary": [
     {
+      "id": "uva50kb",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614271742-DSC01492.JPG",
+      "caption": "Untitled",
+      "mode": "portrait"
+    },
+    {
       "id": "u8zcicz",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614228350-DSC02091.JPG",
-      "caption": "Insel der Jugend [Berlin], ",
+      "caption": "Insel der Jugend [Berlin], 2025",
       "mode": "landscape"
     },
     {
