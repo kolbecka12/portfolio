@@ -1,5 +1,12 @@
 {
-  "street": [],
+  "street": [
+    {
+      "id": "ud3wc3l",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778595915551-2014-nicaragua-02.jpeg",
+      "caption": "Untitled",
+      "mode": "portrait"
+    }
+  ],
   "earth": [
     {
       "id": "uzj6t3y",
