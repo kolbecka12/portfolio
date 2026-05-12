@@ -357,8 +357,8 @@ function AboutPage() {
         <style>{`
           @media (max-width: 820px) {
             .about-grid { grid-template-columns: 1fr !important; }
-            .about-image { height: 50vh !important; min-height: 50vh !important; order: 2; }
-            .about-text { padding: 120px 28px 60px 28px !important; }
+            .about-image { height: 50vh !important; min-height: 50vh !important; order: -1; }
+            .about-text { padding: 40px 28px 60px 28px !important; }
           }
         `}</style>
         <div className="about-grid" style={{
