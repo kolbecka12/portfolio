@@ -213,7 +213,8 @@ function AdminManagePage({ galleryKey }) {
   const meta = GALLERIES.find(g => g.key === galleryKey);
   const [editing, setEditing] = React.useState(null); // image id
   const [showUpload, setShowUpload] = React.useState(false);
-  const [dragId, setDragId] = React.useState(null);
+  const dragIdRef = React.useRef(null); // useRef prevents re-renders that cancel drag
+  const [draggingId, setDraggingId] = React.useState(null); // visual only
   const [dragOverId, setDragOverId] = React.useState(null);
   const w = useViewport();
   const cols = w >= 700 ? 2 : 1;
@@ -226,18 +227,19 @@ function AdminManagePage({ galleryKey }) {
   if (!meta) return null;
 
   const onDragStart = (id) => (e) => {
-    setDragId(id);
+    dragIdRef.current = id;
+    setDraggingId(id);
     e.dataTransfer.effectAllowed = "move";
-    // ghost
     e.dataTransfer.setData("text/plain", id);
   };
   const onDragOver = (id) => (e) => { e.preventDefault(); setDragOverId(id); };
   const onDrop = (id) => (e) => {
     e.preventDefault();
-    if (dragId && dragId !== id) Store.reorder(galleryKey, dragId, id);
-    setDragId(null); setDragOverId(null);
+    if (dragIdRef.current && dragIdRef.current !== id) Store.reorder(galleryKey, dragIdRef.current, id);
+    dragIdRef.current = null;
+    setDraggingId(null); setDragOverId(null);
   };
-  const onDragEnd = () => { setDragId(null); setDragOverId(null); };
+  const onDragEnd = () => { dragIdRef.current = null; setDraggingId(null); setDragOverId(null); };
 
   return (
     <div className="page" style={{ minHeight: "100vh", paddingBottom: 120 }}>
@@ -284,8 +286,8 @@ function AdminManagePage({ galleryKey }) {
                 img={img}
                 span={span}
                 aspect={aspect}
-                isDragging={dragId === img.id}
-                isDropTarget={dragOverId === img.id && dragId !== img.id}
+                isDragging={draggingId === img.id}
+                isDropTarget={dragOverId === img.id && draggingId !== img.id}
                 onDragStart={onDragStart(img.id)}
                 onDragOver={onDragOver(img.id)}
                 onDrop={onDrop(img.id)}
