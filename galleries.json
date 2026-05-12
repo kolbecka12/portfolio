@@ -75,12 +75,6 @@
       "mode": "square"
     },
     {
-      "id": "e3",
-      "src": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=1600&q=80",
-      "caption": "Forest, Olympic National Park",
-      "mode": "portrait"
-    },
-    {
       "id": "e4",
       "src": "https://images.unsplash.com/photo-1426604966848-d7adac402bff?auto=format&fit=crop&w=1600&q=80",
       "caption": "Ridge, Patagonia",
