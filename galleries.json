@@ -67,12 +67,6 @@
       "mode": "landscape"
     },
     {
-      "id": "s-1778595973443",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778595973443-2015-thailand-03.jpg",
-      "caption": "Untitled",
-      "mode": "landscape"
-    },
-    {
       "id": "s-1778596041633",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596041633-2025-limoges-compressed.jpg",
       "caption": "Untitled",
@@ -83,6 +77,12 @@
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778675041734-karnival-der-kulturen-small-05.jpg",
       "caption": "Untitled",
       "mode": "portrait"
+    },
+    {
+      "id": "s-1778595973443",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778595973443-2015-thailand-03.jpg",
+      "caption": "Untitled",
+      "mode": "landscape"
     },
     {
       "id": "s-1778596084490",
