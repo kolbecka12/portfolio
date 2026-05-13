@@ -147,7 +147,7 @@ const Store = (() => {
       notify();
     },
     addImage: (gallery, img) => {
-      Store.set(s => ({ images: { ...s.images, [gallery]: [img, ...s.images[gallery]] } }));
+      Store.set(s => ({ images: { ...s.images, [gallery]: [...s.images[gallery], img] } }));
       persist(gallery);
     },
     deleteImage: (gallery, id) => {
