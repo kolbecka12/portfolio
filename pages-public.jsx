@@ -218,7 +218,7 @@ function GalleryPage({ galleryKey, tweaks }) {
                 }} />
                 <div className="cap" style={{
                   position: "absolute", left: 16, bottom: 14, right: 16,
-                  fontFamily: "var(--serif)", fontStyle: "italic",
+                  fontFamily: "var(--serif)", fontStyle: "normal",
                   fontSize: 15, color: "#fff",
                   textAlign: "center",
                   opacity: 0, transition: "opacity 300ms ease",
