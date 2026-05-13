@@ -61,6 +61,12 @@
       "mode": "portrait"
     },
     {
+      "id": "ug1ios1",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778674623060-2015-lila-01-cropped.jpg",
+      "caption": "Untitled",
+      "mode": "landscape"
+    },
+    {
       "id": "s-1778595973443",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778595973443-2015-thailand-03.jpg",
       "caption": "Untitled",
@@ -71,12 +77,6 @@
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596041633-2025-limoges-compressed.jpg",
       "caption": "Untitled",
       "mode": "portrait"
-    },
-    {
-      "id": "ug1ios1",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778674623060-2015-lila-01-cropped.jpg",
-      "caption": "Untitled",
-      "mode": "landscape"
     },
     {
       "id": "ua1drym",
