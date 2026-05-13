@@ -177,6 +177,24 @@ function GalleryPage({ galleryKey, tweaks }) {
       `}</style>
       <main className="gallery-main">
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+
+        {galleryKey === "diary" && (
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <div style={{
+              fontFamily: "var(--sans)", fontSize: 10, letterSpacing: "0.22em",
+              textTransform: "uppercase", color: "var(--ink-muted)", marginBottom: 12,
+            }}>
+              About this gallery
+            </div>
+            <p style={{
+              fontFamily: "var(--serif)", fontSize: 17, color: "var(--ink-soft)",
+              lineHeight: 1.55, margin: 0,
+            }}>
+              Selections from a nearly four-year daily photojournal project, shot mostly on a Google Pixel phone.
+            </p>
+          </div>
+        )}
+
         <div style={{
           display: "grid",
           gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`,
