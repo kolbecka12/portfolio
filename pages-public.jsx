@@ -198,19 +198,28 @@ function GalleryPage({ galleryKey, tweaks }) {
                 }}
                 onMouseEnter={(e) => {
                   const cap = e.currentTarget.querySelector(".cap");
+                  const ov = e.currentTarget.querySelector(".ov");
                   if (cap) cap.style.opacity = 1;
+                  if (ov) ov.style.opacity = 1;
                 }}
                 onMouseLeave={(e) => {
                   const cap = e.currentTarget.querySelector(".cap");
+                  const ov = e.currentTarget.querySelector(".ov");
                   if (cap) cap.style.opacity = 0;
+                  if (ov) ov.style.opacity = 0;
                 }}>
-                
+
                 <ImageCell src={img.src} alt={img.caption} aspect={aspect} />
+                <div className="ov" style={{
+                  position: "absolute", inset: 0,
+                  background: "rgba(0,0,0,0.15)",
+                  opacity: 0, transition: "opacity 300ms ease",
+                  pointerEvents: "none"
+                }} />
                 <div className="cap" style={{
                   position: "absolute", left: 16, bottom: 14, right: 16,
-                  fontFamily: "var(--serif)", fontStyle: "normal",
-                  fontSize: 16, color: "#fff",
-                  textShadow: "0 1px 6px rgba(0,0,0,0.4)",
+                  fontFamily: "var(--serif)", fontStyle: "italic",
+                  fontSize: 15, color: "#fff",
                   textAlign: "center",
                   opacity: 0, transition: "opacity 300ms ease",
                   pointerEvents: "none"
