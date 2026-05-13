@@ -295,11 +295,32 @@ function LightboxPage({ galleryKey, photoId }) {
       <div style={{
         minHeight: "100vh",
         display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-        paddingTop: 92, paddingBottom: 48,
-        gap: 16,
+        paddingTop: 72, paddingBottom: 24,
+        gap: 0,
       }}>
-        {/* < ##/## > above photo */}
-        <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
+        {/* Photo */}
+        <img
+          key={img.id}
+          src={img.src}
+          alt={img.caption}
+          className="img-fade lightbox-img"
+          style={{
+            maxWidth: "100%", maxHeight: "calc(100vh - 160px)",
+            objectFit: "contain",
+            boxShadow: "0 6px 40px rgba(20,18,14,0.06)"
+          }} />
+
+        {/* Caption */}
+        <div style={{
+          fontFamily: "var(--serif)", fontStyle: "normal", fontSize: 15,
+          color: "var(--ink-soft)", textAlign: "center",
+          marginTop: 14,
+        }}>
+          {img.caption}
+        </div>
+
+        {/* < ##/## > below caption */}
+        <div style={{ display: "flex", alignItems: "center", gap: 0, marginTop: 14 }}>
           <button aria-label="Previous" onClick={() => go(prev)}
             style={lightboxArrowStyle}
             onMouseEnter={(e) => e.currentTarget.style.color = "var(--ink)"}
@@ -319,26 +340,6 @@ function LightboxPage({ galleryKey, photoId }) {
             onMouseLeave={(e) => e.currentTarget.style.color = "var(--ink-soft)"}>
             <Icon.ArrowRight />
           </button>
-        </div>
-
-        {/* Photo */}
-        <img
-          key={img.id}
-          src={img.src}
-          alt={img.caption}
-          className="img-fade lightbox-img"
-          style={{
-            maxWidth: "100%", maxHeight: "calc(100vh - 280px)",
-            objectFit: "contain",
-            boxShadow: "0 6px 40px rgba(20,18,14,0.06)"
-          }} />
-
-        {/* Caption */}
-        <div style={{
-          fontFamily: "var(--serif)", fontStyle: "normal", fontSize: 15,
-          color: "var(--ink-soft)", textAlign: "center",
-        }}>
-          {img.caption}
         </div>
       </div>
     </div>);
