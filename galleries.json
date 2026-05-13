@@ -55,16 +55,16 @@
       "mode": "portrait"
     },
     {
-      "id": "s-1778595990857",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778595990857-Budapest-2_05.2022.jpg",
-      "caption": "Untitled",
-      "mode": "portrait"
-    },
-    {
       "id": "u9nosfv",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778673903989-vietnam-2019-02-cropped-compressed.jpg",
       "caption": "Untitled",
       "mode": "landscape"
+    },
+    {
+      "id": "s-1778595990857",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778595990857-Budapest-2_05.2022.jpg",
+      "caption": "Untitled",
+      "mode": "portrait"
     },
     {
       "id": "s-1778596017570",
