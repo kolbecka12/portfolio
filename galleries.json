@@ -275,12 +275,6 @@
       "mode": "portrait"
     },
     {
-      "id": "uuo9ylp",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778671726060-PXL_20241213_202901666.jpg",
-      "caption": "Untitled",
-      "mode": "portrait"
-    },
-    {
       "id": "d-1778613856420",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778613856420-DSC01041.JPG",
       "caption": "Neukölln, Berlin, DE | 2024",
@@ -296,6 +290,12 @@
       "id": "d-1778614158626",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778614158626-PXL_20250324_150045737.jpg",
       "caption": "Mitte, Berlin, DE | 2025",
+      "mode": "portrait"
+    },
+    {
+      "id": "uuo9ylp",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/diary/1778671726060-PXL_20241213_202901666.jpg",
+      "caption": "Untitled",
       "mode": "portrait"
     }
   ]
