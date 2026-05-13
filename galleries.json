@@ -85,6 +85,12 @@
       "mode": "portrait"
     },
     {
+      "id": "ug1ios1",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778674623060-2015-lila-01-cropped.jpg",
+      "caption": "Untitled",
+      "mode": "landscape"
+    },
+    {
       "id": "s-1778596073215",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596073215-2025-brighton-compressed.jpg",
       "caption": "Untitled",
@@ -95,12 +101,6 @@
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596084490-Vienna-12.2024-04.JPG",
       "caption": "Untitled",
       "mode": "portrait"
-    },
-    {
-      "id": "ug1ios1",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778674623060-2015-lila-01-cropped.jpg",
-      "caption": "Untitled",
-      "mode": "landscape"
     }
   ],
   "earth": [
