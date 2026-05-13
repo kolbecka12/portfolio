@@ -43,12 +43,6 @@
       "mode": "landscape"
     },
     {
-      "id": "s-1778596084490",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596084490-Vienna-12.2024-04.JPG",
-      "caption": "Untitled",
-      "mode": "portrait"
-    },
-    {
       "id": "s-1778596003584",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596003584-2025-july-butzowstrasse-compressed.jpg",
       "caption": "Untitled",
@@ -59,6 +53,12 @@
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778595973443-2015-thailand-03.jpg",
       "caption": "Untitled",
       "mode": "landscape"
+    },
+    {
+      "id": "s-1778596084490",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596084490-Vienna-12.2024-04.JPG",
+      "caption": "Untitled",
+      "mode": "portrait"
     },
     {
       "id": "up3hvju",
