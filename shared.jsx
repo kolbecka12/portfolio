@@ -18,8 +18,8 @@ function MenuOverlay({ open, onClose, current }) {
 
   const links = [
     { href: "#/",       label: "Home",   key: "home" },
-    { href: "#/street", label: "Street", key: "street" },
     { href: "#/earth",  label: "Earth",  key: "earth" },
+    { href: "#/street", label: "Street", key: "street" },
     { href: "#/diary",  label: "Diary",  key: "diary" },
     { href: "#/about",  label: "About",  key: "about" },
   ];

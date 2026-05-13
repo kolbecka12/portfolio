@@ -79,8 +79,8 @@ function HomePage({ tweaks }) {
             marginTop: 40
           }}>
             {[
-            { href: "#/street", label: "Street" },
             { href: "#/earth", label: "Earth" },
+            { href: "#/street", label: "Street" },
             { href: "#/diary", label: "Diary" },
             { href: "#/about", label: "About" }].
             map((l, i) =>
