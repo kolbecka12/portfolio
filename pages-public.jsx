@@ -298,17 +298,31 @@ function LightboxPage({ galleryKey, photoId }) {
         paddingTop: 72, paddingBottom: 24,
         gap: 0,
       }}>
-        {/* Photo */}
-        <img
-          key={img.id}
-          src={img.src}
-          alt={img.caption}
-          className="img-fade lightbox-img"
-          style={{
-            maxWidth: "100%", maxHeight: "calc(100vh - 160px)",
-            objectFit: "contain",
-            boxShadow: "0 6px 40px rgba(20,18,14,0.06)"
-          }} />
+        {/* Photo with flanking arrows */}
+        <div style={{ display: "flex", alignItems: "center", gap: 36, maxWidth: "100%" }}>
+          <button aria-label="Previous" onClick={() => go(prev)}
+            style={lightboxArrowStyle}
+            onMouseEnter={(e) => e.currentTarget.style.color = "var(--ink)"}
+            onMouseLeave={(e) => e.currentTarget.style.color = "var(--ink-soft)"}>
+            <Icon.ArrowLeft />
+          </button>
+          <img
+            key={img.id}
+            src={img.src}
+            alt={img.caption}
+            className="img-fade lightbox-img"
+            style={{
+              maxWidth: "100%", maxHeight: "calc(100vh - 160px)",
+              objectFit: "contain", flex: "0 1 auto", minWidth: 0,
+              boxShadow: "0 6px 40px rgba(20,18,14,0.06)"
+            }} />
+          <button aria-label="Next" onClick={() => go(next)}
+            style={lightboxArrowStyle}
+            onMouseEnter={(e) => e.currentTarget.style.color = "var(--ink)"}
+            onMouseLeave={(e) => e.currentTarget.style.color = "var(--ink-soft)"}>
+            <Icon.ArrowRight />
+          </button>
+        </div>
 
         {/* Caption */}
         <div style={{
@@ -317,29 +331,6 @@ function LightboxPage({ galleryKey, photoId }) {
           marginTop: 14,
         }}>
           {img.caption}
-        </div>
-
-        {/* < ##/## > below caption */}
-        <div style={{ display: "flex", alignItems: "center", gap: 0, marginTop: 14 }}>
-          <button aria-label="Previous" onClick={() => go(prev)}
-            style={lightboxArrowStyle}
-            onMouseEnter={(e) => e.currentTarget.style.color = "var(--ink)"}
-            onMouseLeave={(e) => e.currentTarget.style.color = "var(--ink-soft)"}>
-            <Icon.ArrowLeft />
-          </button>
-          <div style={{
-            fontFamily: "var(--sans)", fontSize: 11, letterSpacing: "0.22em",
-            textTransform: "uppercase", color: "var(--ink-muted)",
-            minWidth: 60, textAlign: "center",
-          }}>
-            {String(idx + 1).padStart(2, "0")} / {String(list.length).padStart(2, "0")}
-          </div>
-          <button aria-label="Next" onClick={() => go(next)}
-            style={lightboxArrowStyle}
-            onMouseEnter={(e) => e.currentTarget.style.color = "var(--ink)"}
-            onMouseLeave={(e) => e.currentTarget.style.color = "var(--ink-soft)"}>
-            <Icon.ArrowRight />
-          </button>
         </div>
       </div>
     </div>);
