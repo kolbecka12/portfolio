@@ -43,7 +43,6 @@ function HomePage({ tweaks }) {
             opacity: 0.25;
             pointer-events: none;
           }
-          .home-studio-login { display: none !important; }
         }
       `}</style>
       <div
@@ -126,13 +125,6 @@ function HomePage({ tweaks }) {
             onMouseLeave={(e) => e.currentTarget.style.color = "var(--ink-soft)"}>
               <Icon.Unsplash />
             </a>
-            <span className="home-studio-login" style={{
-              marginLeft: "auto",
-              fontFamily: "var(--sans)", fontSize: 10, letterSpacing: "0.22em",
-              textTransform: "uppercase", color: "var(--ink-muted)"
-            }}>
-              <a href="#/login">Studio Login</a>
-            </span>
           </div>
         </div>
 
