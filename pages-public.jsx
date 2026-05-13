@@ -349,7 +349,7 @@ const lightboxArrowStyle = {
 function AboutPage() {
   return (
     <div className="page" style={{ minHeight: "100vh" }}>
-      <Topbar current="about" solid />
+      <Topbar current="about" solid wide />
       <main style={{ minHeight: "100vh" }}>
         <style>{`
           @media (max-width: 820px) {

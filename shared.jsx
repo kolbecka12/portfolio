@@ -50,12 +50,12 @@ function MenuOverlay({ open, onClose, current }) {
   );
 }
 
-function Topbar({ crumb, current = null, showLogo = true, solid = false }) {
+function Topbar({ crumb, current = null, showLogo = true, solid = false, wide = false }) {
   const [menuOpen, setMenuOpen] = React.useState(false);
   return (
     <React.Fragment>
       <header className="topbar" style={solid ? { background: "var(--bg)" } : {}}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={wide ? { width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" } : { maxWidth: 1200, margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
             {showLogo && (
               crumb ? (
