@@ -73,6 +73,12 @@
       "mode": "portrait"
     },
     {
+      "id": "ug1ios1",
+      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778674623060-2015-lila-01-cropped.jpg",
+      "caption": "Untitled",
+      "mode": "landscape"
+    },
+    {
       "id": "s-1778595990857",
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778595990857-Budapest-2_05.2022.jpg",
       "caption": "Untitled",
@@ -83,12 +89,6 @@
       "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778596017570-2025-london_lg-4-compressesd.jpg",
       "caption": "Untitled",
       "mode": "portrait"
-    },
-    {
-      "id": "ug1ios1",
-      "src": "https://raw.githubusercontent.com/kolbecka12/portfolio/main/images/street/1778674623060-2015-lila-01-cropped.jpg",
-      "caption": "Untitled",
-      "mode": "landscape"
     },
     {
       "id": "s-1778596073215",
