@@ -274,7 +274,7 @@ function LightboxPage({ galleryKey, photoId }) {
   if (!img) {
     return (
       <div className="page" style={{ padding: 80 }}>
-        <Topbar crumb={meta?.label} current={galleryKey} />
+        <Topbar crumb={meta?.label} current={galleryKey} onClose={() => window.location.hash = `#/${galleryKey}`} />
         <p style={{ marginTop: 100, fontStyle: "italic", color: "var(--ink-muted)" }}>
           That photograph couldn’t be found. <a href={`#/${galleryKey}`} style={{ borderBottom: "1px solid currentColor" }}>Back to {meta?.label}</a>.
         </p>
@@ -285,7 +285,7 @@ function LightboxPage({ galleryKey, photoId }) {
   return (
     <div className="page" style={{ background: "var(--bg)", minHeight: "100vh" }}
     onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-      <Topbar crumb={meta.label} current={galleryKey} />
+      <Topbar crumb={meta.label} current={galleryKey} onClose={() => window.location.hash = `#/${galleryKey}`} />
 
       <style>{`
         @media (max-width: 600px) {

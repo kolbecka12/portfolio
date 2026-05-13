@@ -50,7 +50,7 @@ function MenuOverlay({ open, onClose, current }) {
   );
 }
 
-function Topbar({ crumb, current = null, showLogo = true, solid = false, wide = false }) {
+function Topbar({ crumb, current = null, showLogo = true, solid = false, wide = false, onClose = null }) {
   const [menuOpen, setMenuOpen] = React.useState(false);
   return (
     <React.Fragment>
@@ -67,9 +67,18 @@ function Topbar({ crumb, current = null, showLogo = true, solid = false, wide = 
               ) : <Logo />
             )}
           </div>
-          <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
-            <span></span><span></span><span></span>
-          </button>
+          {onClose ? (
+            <button aria-label="Close" onClick={onClose}
+              style={{ background: "none", border: "none", cursor: "pointer", padding: 4, color: "var(--ink-soft)", display: "flex", alignItems: "center" }}
+              onMouseEnter={(e) => e.currentTarget.style.color = "var(--ink)"}
+              onMouseLeave={(e) => e.currentTarget.style.color = "var(--ink-soft)"}>
+              <Icon.Close size={22} />
+            </button>
+          ) : (
+            <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
+              <span></span><span></span><span></span>
+            </button>
+          )}
         </div>
       </header>
       <MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} current={current} />
