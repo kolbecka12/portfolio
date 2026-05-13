@@ -85,7 +85,7 @@ function ImageCell({ src, alt = "", onClick, style = {}, className = "", aspect 
       onClick={onClick}
     >
       <img
-        src={src} alt={alt} loading="lazy"
+        src={src} alt={alt} loading="lazy" draggable={false}
         onLoad={() => setLoaded(true)}
         style={{
           opacity: loaded ? 1 : 0,
