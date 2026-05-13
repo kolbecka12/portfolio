@@ -47,7 +47,7 @@ const HOMEPAGE_HERO = "home-photo.jpeg";
 const GALLERIES = [
   { key: "street", label: "Street", blurb: "Cities, walking, found light." },
   { key: "earth",  label: "Earth",  blurb: "Land, weather, far places." },
-  { key: "diary",  label: "Diary",  blurb: "Notes from days I want to remember." },
+  { key: "diary",  label: "Diary",  blurb: "Selected images from my photojournal." },
 ];
 
 // --- IndexedDB persistence layer -------------------------------------------
