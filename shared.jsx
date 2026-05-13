@@ -55,20 +55,22 @@ function Topbar({ crumb, current = null, showLogo = true, solid = false }) {
   return (
     <React.Fragment>
       <header className="topbar" style={solid ? { background: "var(--bg)" } : {}}>
-        <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
-          {showLogo && (
-            crumb ? (
-              <span className="crumb">
-                <a href="#/" style={{ fontStyle: "normal" }}>Andie Kolbeck</a>
-                <span className="sep">›</span>
-                {current ? <a href={`#/${current}`}><em>{crumb}</em></a> : <em>{crumb}</em>}
-              </span>
-            ) : <Logo />
-          )}
+        <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
+            {showLogo && (
+              crumb ? (
+                <span className="crumb">
+                  <a href="#/" style={{ fontStyle: "normal" }}>Andie Kolbeck</a>
+                  <span className="sep">›</span>
+                  {current ? <a href={`#/${current}`}><em>{crumb}</em></a> : <em>{crumb}</em>}
+                </span>
+              ) : <Logo />
+            )}
+          </div>
+          <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
+            <span></span><span></span><span></span>
+          </button>
         </div>
-        <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
-          <span></span><span></span><span></span>
-        </button>
       </header>
       <MenuOverlay open={menuOpen} onClose={() => setMenuOpen(false)} current={current} />
     </React.Fragment>
