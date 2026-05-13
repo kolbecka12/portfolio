@@ -158,17 +158,17 @@ const Store = (() => {
       Store.set(s => ({ images: { ...s.images, [gallery]: s.images[gallery].map(i => i.id === id ? { ...i, ...patch } : i) } }));
       persist(gallery);
     },
-    reorder: (gallery, fromId, toId) => Store.set(s => {
+    reorder: (gallery, fromId, toId) => {
+      const s = Store.get();
       const list = [...s.images[gallery]];
       const fi = list.findIndex(i => i.id === fromId);
       const ti = list.findIndex(i => i.id === toId);
-      if (fi < 0 || ti < 0) return {};
+      if (fi < 0 || ti < 0) return;
       const [moved] = list.splice(fi, 1);
       list.splice(ti, 0, moved);
       Store.set({ images: { ...s.images, [gallery]: list } });
       persist(gallery);
-      return {};
-    }),
+    },
     login: () => { localStorage.setItem("ak_auth", "1"); Store.set({ auth: true }); },
     logout: () => { localStorage.removeItem("ak_auth"); Store.set({ auth: false }); },
   };
